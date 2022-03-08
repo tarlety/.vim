@@ -1236,11 +1236,11 @@
 
     " plugin vim-jsbeautify {
     " ~/.vim/bundle/vim-jsbeautify/README.md
-    autocmd FileType javascript noremap <buffer> <leader>= :call JsBeautify()<cr>
-    autocmd FileType json noremap <buffer> <leader>= :call JsonBeautify()<cr>
-    autocmd FileType jsx noremap <buffer> <leader>= :call JsxBeautify()<cr>
-    autocmd FileType html noremap <buffer> <leader>= :call HtmlBeautify()<cr>
-    autocmd FileType css noremap <buffer> <leader>= :call CSSBeautify()<cr>
+    autocmd FileType javascript noremap <buffer> <leader>== :call JsBeautify()<cr>
+    autocmd FileType json noremap <buffer> <leader>== :call JsonBeautify()<cr>
+    autocmd FileType jsx noremap <buffer> <leader>== :call JsxBeautify()<cr>
+    autocmd FileType html noremap <buffer> <leader>== :call HtmlBeautify()<cr>
+    autocmd FileType css noremap <buffer> <leader>== :call CSSBeautify()<cr>
     " }
 " }
 

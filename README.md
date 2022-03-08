@@ -75,6 +75,7 @@ Powerful IDE key mapping principle:
 - Use `=` as auto indent related key.
 - Use `,t` as IDE tag list leading key.
 - Use `,g` as git leading key.
+- Use `,=` as formatting key.
 - Use `][` as message navigation leading key.
 - Use `<tab>` as IDE coc auto completion.
 - Use `<c-o>` as IDE coc code snippets.
@@ -139,13 +140,13 @@ Commands to control tab.
 
 Key '=' for formatting.
 
-| Key                      | Action                                   |
-|--------------------------|------------------------------------------|
-| **`<leader>=`**         | Quick format html, js, json, css, etc... |
-| (VISUAL)`<leader>=`      | Advanced coc code formating.             |
-| `>` and `<` and `==` | Single line indent.                    |
-| (VISUAL)`=`              | Multiple line indent.                   |
-| `<leader>=t`             | Expand tabs for buffer or selection.     |
+| Key                  | Action                                   |
+|----------------------|------------------------------------------|
+| **`<leader>==`**     | Quick format html, js, json, css, etc... |
+| (VISUAL)`<leader>=`  | Advanced coc code formating.             |
+| `>` and `<` and `==` | Single line indent.                      |
+| (VISUAL)`=`          | Multiple line indent.                    |
+| `<leader>=t`         | Expand tabs for buffer or selection.     |
 
 Different edit mode.
 
