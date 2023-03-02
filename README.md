@@ -35,7 +35,7 @@
   * [Compile and Run](#compile-and-run)
   * [CoC List](#coc-list)
 * [Plugins](#plugins)
-* [Support Languages](#support-languages)
+* [Support Filetype](#support-filetype)
 * [Compatibility](#compatibility)
 * [License](#license)
 
@@ -67,6 +67,7 @@ Powerful editor key mapping principle:
 - Use `,f` as find leading key.
 - Use `,n` as file management leading key.
 - Use `,m` as table mode leading key.
+- Use `,,w` as easy motion leading key.
 - Use `<c-w>` as window control leading key.
 - Use `<c-n>` as multiple selection envoking key.
 
@@ -106,6 +107,7 @@ Other quick cursor and screen control.
 | `W` `B` | Faster word and back-word motion.     |
 | `z.`    | Put current line to center of screen. |
 | `z-`    | Put current line to bottom of screen. |
+| `<leader><leader>w or b`                 | Easy move to word (forward or backward). |
 
 ### Window
 
@@ -152,7 +154,7 @@ Different edit mode.
 
 | Key                 | Action                       |
 |---------------------|------------------------------|
-| `<leader><leader>w` | Toggle word wrap on and off. |
+| `<leader><leader>z` | Toggle word wrap on and off. |
 | `<leader><leader>p` | Toggle paste mode.           |
 
 ### Clipboard
@@ -382,7 +384,7 @@ Warning/Error Navigation:
 
 Highlight:
 
-- `vim-plug`: plugin manager.
+- `vim-plug`: plugin manager
 - `nerdtree` family
     - `nerdtree-git-plugin`
     - `vim-nerdtree-syntax-highlight`
@@ -392,26 +394,24 @@ Highlight:
     - `lightline-hunks`
     - `lightline-ale`
     - `vim-lightline-coc`
-- `coc.nvim` extensions
-    - `coc-json`
-    - `coc-vimlsp`
-    - `coc-phpls`
-    - `coc-html`
-    - `coc-css`
-    - `coc-go`
-    - `coc-tsserver`
-    - `coc-pyright`
-- auto completion, syntax highlight, linter checker, snippets
+- auto completion, syntax highlight, linter checker
     - `tmux-completion`
     - `ale`
-    - `ultisnips` and `vim-snippets`
+    - `coc.nvim` extensions
+        - `coc-json`
+        - `coc-vimlsp`
+        - `coc-phpls`
+        - `coc-html`
+        - `coc-css`
+        - `coc-go`
+        - `coc-tsserver`
+        - `coc-pyright`
 - markdown family
-    - `vim-instant-markdown`
     - `vim-table-mode`
     - `vim-markdown-toc`
 - `fzf.vim` and `vim-rooter`
 
-## Support Languages
+## Support Filetype
 
 - `Dockerfile`
 - `python`, `go`, `c/c++`, `c#`, `php`, `javascript`, `typescript`

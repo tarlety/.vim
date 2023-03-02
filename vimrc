@@ -227,7 +227,7 @@
     set nowrap
 
     " Toggle word wrap on and off
-    map <leader><leader>w :setlocal nowrap!<cr>
+    map <leader><leader>z :setlocal nowrap!<cr>
 
     " modeline only take effect in first 2 lines or last 2 lines
     set modeline
@@ -417,6 +417,9 @@
         Plug 'airblade/vim-rooter'
           " changes the working directory to the project root when you open a file or directory
 
+        Plug 'Lokaltog/vim-easymotion'
+          " <leader><leader>w forward move <leader><leader>b backward move
+
         Plug 'kshenoy/vim-signature'
           " Visible mark (m-*)
     " }
@@ -441,10 +444,6 @@
         Plug 'ap/vim-css-color'
           " A very fast, multi-syntax context-sensitive color name highlighter
 
-        Plug 'SirVer/ultisnips'
-        Plug 'honza/vim-snippets'
-          " UltiSnip as snippet engine. Snippets separate from the engine.
-
     " }
 
     " Plugins - filetypes {
@@ -461,8 +460,6 @@
         " }
 
         " markdown {
-        Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-          " instantly preview finicky markdown files
         Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['markdown'] }
           " <leader>tm to start automatic table creator & formatter
         Plug 'mzlogin/vim-markdown-toc', { 'on': 'GenTocGFM', 'for': ['markdown'] }
@@ -652,6 +649,11 @@
     let g:rooter_silent_chdir = 1
     " }
 
+    " plugin vim-easymotion {
+    " ~/.vim/bundle/vim-easymotion/README.md
+    VkhAdd 'vim-easymotion: <leader><leader>w jump forward <leader><leader>b jump backward.'
+    " }
+
     " plugin vim-signature {
     " ~/.vim/bundle/vim-signature/doc/signature.txt
 
@@ -776,20 +778,6 @@
     " snippets: ~/.vim/bundle/vim-snippets/snippets
     source ~/.vim/snippets/markdown.vim
     VkhAdd 'ultisnips: <c-o> trigger snippets.'
-    " }
-
-    " plugin vim-instant-markdown {
-    " ~/.vim/bundle/vim-instant-markdown/README.md
-    let g:instant_markdown_slow = 0
-    let g:instant_markdown_autostart = 0
-    "let g:instant_markdown_open_to_the_world = 1
-    let g:instant_markdown_allow_unsafe_content = 0
-    let g:instant_markdown_mathjax = 1
-    let g:instant_markdown_browser = "google-chrome --incognito"
-    "let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
-    let g:instant_markdown_port = 8888
-    let g:instant_markdown_autoscroll = 1
-    VkhAdd 'vim-instant-markdown: <leader>R to preview markdown.'
     " }
 
     " plugin vim-table-mode {
