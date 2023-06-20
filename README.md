@@ -32,7 +32,6 @@
   * [Documentation](#documentation)
   * [Code Comment](#code-comment)
   * [Refactoring](#refactoring)
-  * [Compile and Run](#compile-and-run)
   * [CoC List](#coc-list)
 * [Plugins](#plugins)
 * [Support Filetype](#support-filetype)
@@ -166,14 +165,13 @@ Different edit mode.
 
 ### Misc
 
-| Key               | Action                      |
-|-------------------|-----------------------------|
-| `zz`              | Save the file.              |
-| `<leader>s`       | Open a fancy start screen.  |
-| `<leader>rc`      | Open vimrc.                 |
-| `<leader>rr`      | Reload vimrc.               |
-| `<leader><space>` | Edit next placeholder . |
-| `tx`              | Place an AsciiArt.          |
+| Key               | Action                     |
+|-------------------|----------------------------|
+| `zz`              | Save the file.             |
+| `<leader>S`       | Open a fancy start screen. |
+| `<leader>rc`      | Open vimrc.                |
+| `<leader>rr`      | Reload vimrc.              |
+| `tx`              | Place an AsciiArt.         |
 
 | Command    | Action                                                   |
 |------------|----------------------------------------------------------|
@@ -360,13 +358,6 @@ Warning/Error Navigation:
 | `<leader>ac`        | Apply code action to current buffer.                        |
 | `<leader>qf`        | Apply quick fix to the problem of the current line.         |
 | `<leader>rn`        | Symbol rename.                                              |
-
-### Compile and Run
-
-| Key                 | Action                                                      |
-|---------------------|-------------------------------------------------------------|
-| `<leader>R`         | Compile and Run.                                            |
-| `<leader>T`         | Open terminal.                                              |
 
 ### CoC List
 

@@ -8,8 +8,10 @@
 "
 " Description:
 "
-"   All in one .vimrc for personal configurations.
-"   Customization for sensible, comfortable, light and powerful editor environment.
+"   This is a .vimrc file that integrates personal configurations to create a
+"   practical, comfortable, lightweight, and powerful editor environment. This
+"   file contains various configurations and plugins that define behaviors in
+"   settings, interface, search, movement, formatting, editing, and more.
 "
 
 " Skip all configurations and plugins for vim.tiny {
@@ -55,7 +57,7 @@
     " Quicker command mode
     noremap ; :
 
-    " Save and Quit
+    " Save and Quit (ZZ to save the current file and exit Vim)
     noremap zz :w<CR>
     noremap Q <c-w>q
 
@@ -63,65 +65,84 @@
 
 " User Interface {
 
-    " Display options; cursor, line, column, menu, etc... {
+    " Settings to customize the appearance and behavior of the Vim editor. {
 
-        " set line to cursor
+        " Set the displayed lines to include the 7 lines before and after the
+        " current cursor position, creating a contextual view on the screen.
         set so=7
 
-        " precede each line with its line number
+        " Display line numbers at the beginning of each line.
         set nu
 
-        " Don't show the line number relative to the line with the cursor (syntax highlight performance impacted)
+        " Do not display line numbers relative to the line with the cursor,
+        " syntax highlight performance impacted.
         set nornu
 
-        " show the cursor position all the time
+        " Always show the cursor's position in the bottom right corner of the
+        " screen.
         set ruler
 
-        " Highlight the text line of the cursor.
+        " Highlight the text of the line where the cursor is located.
         set cursorline
 
-        " Set to 1 to add a bit extra margin to the left
+        " Set the width of the folding column to 0, so that folding symbols
+        " are not displayed on the left side of the editor.
         set foldcolumn=0
 
-        " Turn on the Wild menu
+        " Enable the Wild menu, which provides options for command-line
+        " auto-completion.
         set wildmenu
 
-        " Always show status line = 2
+        " Always display two lines for the status bar.
         set laststatus=2
 
     " }
 
-    " Search matches and patterns {
+    " Configuration for search and match patterns {
 
-        " Ignore case when searching
+        " Enable case-insensitive searching to improve flexibility and
+        " convenience
         set ignorecase
 
-        " When searching try to be smart about cases
+        " Determine whether to differentiate case sensitivity based on the
+        " presence of uppercase letters in the search pattern. This practical
+        " feature automatically handles case sensitivity when needed and
+        " ignores it when not necessary.
         set smartcase
 
-        " Also switch on highlighting the last used search pattern.
+        " Highlight the last used search pattern to facilitate tracking of
+        " search results, especially in long documents.
         set hlsearch
 
-        " do incremental searching
+        " Enable incremental searching, which displays matching results in
+        " real-time as you input the search pattern. This is helpful for
+        " quickly locating desired content.
         set incsearch
 
-        " For regular expressions turn magic on
+        " In magic mode, certain metacharacters in regular expressions are
+        " interpreted with special meanings without requiring backslash
+        " escaping. Enabling this option makes Vim's regular expressions more
+        " concise and intuitive, facilitating search and replace operations.
+        " In magic mode, /exp.*ion/ can directly search for "expression".
+        " In non-magic mode, /exp\.\*ion/ needs to be escaped with a backslash
+        " to search for the literal meaning of "/expression/".
         set magic
 
-        " Show matching brackets when text indicator is over them
+        " Show matching brackets when the text cursor is positioned over them.
+        " This setting helps identify matching brackets, particularly when
+        " working with nested bracket structures in code editing.
         set showmatch
-        " How many tenths of a second to blink when matching brackets
+
+        " Set the duration of bracket flashing to visually indicate the
+        " location of matching brackets.
         set mat=2
 
-        " Visual mode pressing * or # searches for the current selection
+        " In visual mode, pressing * or # will quickly search for the selected
+        " text, making it convenient for finding and locating occurrences.
         vnoremap <silent> * :<C-u>call VisualSelection()<CR>/<C-R>=@/<CR><CR>
         vnoremap <silent> # :<C-u>call VisualSelection()<CR>?<C-R>=@/<CR><CR>
 
         " helper function for current selection {
-        function! CmdLine(str)
-            call feedkeys(":" . a:str)
-        endfunction
-
         function! VisualSelection() range
             let l:saved_reg = @"
             execute "normal! vgvy"
@@ -133,24 +154,37 @@
             let @" = l:saved_reg
         endfunction " }
 
-        " Disable highlight by <leader>/
+        " Use the <leader>/ shortcut to disable the highlight of search
+        " results, clearing the screen from the highlighting and creating a
+        " cleaner interface.
         map <silent> <leader>/ :noh<cr>
 
-        " Do not keep last highlight when opening VIM
+        " Automatically disable the last search highlight when opening Vim
+        " editor to maintain a clean interface.
         exec "nohlsearch"
 
-        " Highlight cursor variables
+        " When the cursor is moved, highlight the word under the cursor,
+        " distinguishing it as a variable and marks the matched word as "Todo"
+        " applying a specific style or color to highlight it. This feature
+        " helps in easily identifying and handling variables in code.
         autocmd CursorMoved * exe printf('match Todo /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
     " }
 
-    " Move around of lines {
+    " Improve efficiency and convenience when editing files {
 
-        " allow backspacing over everything in insert mode
+        " Allow using the backspace key to delete indentation, end-of-line, and
+        " start-of-line characters in insert mode. This setting enhances
+        " flexibility for making corrections during the editing process.
         set backspace=indent,eol,start
+
+        " When reaching the beginning (<), end (>), or screen edge (h and l)
+        " of a line, the cursor automatically moves to the next or previous
+        " line. This setting speeds up navigation within a line.
         set whichwrap+=<,>,h,l
 
-        " Faster in-line navigation
+        " Map W and B to facilitate faster movement while quickly browsing
+        " through files.
         noremap W 5w
         noremap B 5b
 
@@ -166,23 +200,27 @@
 
     " }
 
-    " Move around between buffers, and windows {
+    " Movement and management between buffers and windows {
 
-        " Buffer switching
+        " Buffer switching.
         nmap gj :bn<cr>
         nmap gk :bp<cr>
         nmap g<tab> :b#<cr>
         nmap <leader>bd :bd<cr>
 
-        " beauty windows separator
+        " Beautification of window separators.
         set fillchars+=vert:\│
 
-        " Windows creation and deletion
+        " Creation and deletion of windows.
         map <c-w>- :set splitbelow<cr>:split<cr>
         map <c-w>\| :set splitright<cr>:vsplit<cr>
         map <c-w>\ :set splitright<cr>:vsplit<cr>
 
-        " Always show tabline = 2
+        " Setting showtabline to 2 ensures that the tabline is always
+        " displayed, even when only one file is open. This means that
+        " regardless of the number of opened files, the tabline will always be
+        " visible at the top of the interface, allowing for easy viewing and
+        " switching between different file tabs.
         set showtabline=2
 
     " }
@@ -191,49 +229,60 @@
 
 " Formatting {
 
-    " Switch syntax highlighting on
+    " Enable syntax highlighting to make the code more clear.
     syntax on
 
-    " Enable filetype plugins
+    " Enable filetype plugins and indentation.
     filetype plugin on
     filetype indent on
 
-    " always set autoindenting on
+    " Enable auto-indentation and smart indenting to maintain consistent
+    " indentation style during editing.
     set autoindent
     set smartindent
-    set wrap
 
-    " modern indent: 1 tab = 2 spaces, use space instead
+    " Handle indentation and tab characters by converting Tab characters to
+    " spaces and setting corresponding indent and shift widths. These settings
+    " help ensure code consistency and portability.
+    " The indent rule: 1 tab = 2 spaces. Use space instead of tab.
     set expandtab
     set tabstop=8
     set softtabstop=2
     set shiftwidth=2
     set smarttab
 
-    " fold by indent and fold by default
+    " Configure folding options to fold based on indent levels, providing a
+    " better overview of code structure.
     set foldmethod=indent
     set foldlevel=10
 
-    " For all text files set 'textwidth' to 80
+    " Control the width of text. Set the maximum width of text lines to 80
+    " characters and display a vertical line at the 80th character to aid in
+    " alignment and code adjustment.
     autocmd FileType text setlocal textwidth=80
-
-    " Useful to align text to 80 characters
     set colorcolumn=80
 
-    " wrap but do not change the text
-    set wrap linebreak
+    " Enable text wrapping but not at hyphens. This means that content after a
+    " hyphen will remain on the same line without wrapping to the next line.
+    set wrap nolinebreak
 
-    " When off lines will not wrap and only part of long lines will be displayed
+    " Disable automatic line wrapping. This setting instructs Vim not to
+    " automatically wrap text but to display only a portion of long lines
+    " within the text width limit.
     set nowrap
 
     " Toggle word wrap on and off
     map <leader><leader>z :setlocal nowrap!<cr>
 
-    " modeline only take effect in first 2 lines or last 2 lines
+    " Used for defining modelines, which only take effect in the first two
+    " lines and last two lines of a file. Modelines are special lines that
+    " contain specific instructions that can affect Vim's settings.
     set modeline
     set modelines=2
 
-    " highlight unwanted space
+    " Highlight extra whitespace by setting a background color and using a
+    " regular expression to match trailing whitespace characters. This helps
+    " in checking and removing unnecessary whitespace in code.
     highlight ExtraWhitespace ctermbg=red guibg=red
     autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
     match ExtraWhitespace /\s\+$/
@@ -242,15 +291,18 @@
     autocmd InsertLeave * match ExtraWhitespace /\s\+$/
     autocmd BufWinLeave * call clearmatches()
 
-    " make tab indent and unwanted space more visible
+    " Display special characters, such as tabs and trailing whitespace. This
+    " makes these characters more visible in the editor and helps in checking
+    " formatting issues in the code.
     set list
     set listchars=tab:\|\ ,trail:▫
 
-    " make indent faster
+    " Speed up indentation by providing faster mappings for indenting.
     nnoremap < <<
     nnoremap > >>
 
-    " Tab to Space
+    " Replace tab characters with space characters. This is useful for
+    " converting between tabs and spaces in the text.
     nnoremap <leader>=t :%s/\t/    /g<cr>
     vnoremap <leader>=t :s/\t/    /g<cr>
 
@@ -258,83 +310,43 @@
 
 " Editing {
 
-    " copy/paste and undo {
+    " Toggle paste mode.
+    map <leader><leader>p :setlocal paste!<cr>
 
-        " Toggle paste mode on and off
-        map <leader><leader>p :setlocal paste!<cr>
+    " Share clipboard with system.
+    set clipboard+=unnamed
+    set clipboard+=unnamedplus
 
-        " Share clipboard with system
-        set clipboard+=unnamed
-        set clipboard+=unnamedplus
-
-        " set persistent undo {
-        if !isdirectory("~/.vim/undodir")
-            silent !mkdir -p ~/.vim/undodir
-        endif
-        try
-            set undodir=~/.vim/undodir
-            set undofile
-            set undolevels=1000
-            set undoreload=10000
-        catch
-        endtry
-        " }
-
-    " }
-
-    " spell {
-
-        " Turn off spell checking
-        set nospell
-
-        " Pressing <leader><leader>s will toggle and untoggle spell checking
-        noremap <leader><leader>s :setlocal spell!<cr>
-
-        " sn: next typo
-        noremap <leader>sn ]s
-        " sp: previous typo
-        noremap <leader>sp [s
-        " sa: add typo to dict
-        noremap <leader>sa zg
-        " sc: fix typo
-        noremap <leader>sc a<c-x>s<esc>
-        " s?: list all typo
-        noremap <leader>s? z=
-        "
-    " }
-
-" }
-
-" Compile and Run {
-
-    " Enable auto scroll. `startinsert` let Enter to leave Compile and Run.
+    " Persistent undo: Create a directory for storing undo history and configure
+    " related undo parameters. This allows for easy undo and redo operations
+    " during editing.
+    if !isdirectory("~/.vim/undodir")
+        silent !mkdir -p ~/.vim/undodir
+    endif
     try
-        let g:neoterm_autoscroll = 1
-        autocmd TermOpen term://* startinsert
+        set undodir=~/.vim/undodir
+        set undofile
+        set undolevels=1000
+        set undoreload=10000
     catch
     endtry
 
-    noremap <leader>R :call CompileRun()<CR>
-    function! CompileRun()
-        exec "w"
-        if &filetype == 'dockerfile'
-            set splitbelow
-            :sp
-            :term docker build -t '%:p:h:t':local -f % .
-        elseif &filetype == 'json'
-            " How to run package.json scripts:
-            " - move cursor to script name and press <leader>R to start npm run <script>
-            set splitbelow
-            :sp
-            :exec 'term npm run ' . shellescape(expand('<cword>'))
-        elseif &filetype == 'go'
-            set splitbelow
-            :sp
-            :term go run .
-        elseif &filetype == 'markdown'
-            exec "InstantMarkdownPreview"
-        endif
-    endfunc
+    " Disable spell checking.
+    set nospell
+
+    " Toggle spell checking.
+    noremap <leader><leader>s :setlocal spell!<cr>
+
+    " sn: next typo
+    noremap <leader>sn ]s
+    " sp: previous typo
+    noremap <leader>sp [s
+    " sa: add typo to dict
+    noremap <leader>sa zg
+    " sc: fix typo
+    noremap <leader>sc a<c-x>s<esc>
+    " s?: list all typo
+    noremap <leader>s? z=
 
 " }
 
@@ -345,12 +357,6 @@
 
     " Reload vimrc
     noremap <leader>rr :source ~/.vim/vimrc<CR>
-
-    " next placeholder <++> <++> <++>
-    noremap <leader><SPACE> <Esc>/<++><CR>:nohlsearch<CR>c4l
-
-    " opening a terminal window
-    noremap <leader>T :set splitbelow<CR>:split<CR>:res -10<CR>:term<CR>i
 
     " call figlet
     noremap tx :r !figlet -f pagga 
@@ -394,8 +400,11 @@
         Plug 'mengelbrecht/lightline-bufferline'
           " gn to next buffer, gp to previous buffer, g[1-9] to buffer n
         Plug 'sinetoami/lightline-hunks'
+          " git hunks and git branch for lightline
         Plug 'maximbaz/lightline-ale'
+          " ALE indicator for the lightline vim plugin
         Plug 'josa42/vim-lightline-coc'
+          " coc diagnostics indicator for the lightline vim plugin
 
     " }
 
@@ -481,7 +490,7 @@
           " rainbow parentheses {[()]}
 
         Plug 'maksimr/vim-jsbeautify'
-          " quickly format javascript, html and css files
+          " <leader>== to format javascript, html and css files
 
     " }
 
@@ -587,8 +596,8 @@
     " Unicode box-drawing characters will be used instead.
     let g:startify_fortune_use_unicode = 1
 
-    " anytime <leader>s to launch Startify
-    map <leader>s :Startify<CR>
+    " anytime <leader>S to launch Startify
+    map <leader>S :Startify<CR>
 
     VkhAdd 'vim-startify: <leader>S open the fancy start screen. :SSave to save session.'
     " }
@@ -847,7 +856,7 @@
 
     " plugin vim-surround {
     " ~/.vim/bundle/vim-surround/README.markdown
-    VkhAdd "'+' then 's' then surround."
+    VkhAdd "'+' then 'S' then surround."
     " }
 
     " plugin MatchTag {
@@ -905,6 +914,7 @@
 
     " plugin vim-yankstack {
     " ~/.vim/bundle/vim-yankstack/README.md
+    let g:yankstack_yank_keys = ['y']
     VkhAdd '<a-p> cycle backward through your history of yanks'
     " }
 
