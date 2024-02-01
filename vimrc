@@ -59,7 +59,7 @@
 
     " Save and Quit (ZZ to save the current file and exit Vim)
     noremap zz :w<CR>
-    noremap Q <c-w>q
+    noremap Q :q<CR>
 
 " }
 
@@ -366,7 +366,7 @@
 
 " }
 
-" Plugins manager: vim-plug {
+" Plugins Manager: vim-plug {
 
     " Benefits: on-demand loading, parallel installation/update
     " https://github.com/junegunn/vim-plug
@@ -914,7 +914,7 @@
 
     " plugin vim-yankstack {
     " ~/.vim/bundle/vim-yankstack/README.md
-    let g:yankstack_yank_keys = ['y']
+    let g:yankstack_yank_keys = ['y', 'd', 'c']
     VkhAdd '<a-p> cycle backward through your history of yanks'
     " }
 
