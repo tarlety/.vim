@@ -78,7 +78,6 @@ Powerful IDE key mapping principle:
 - Use `,=` as formatting key.
 - Use `][` as message navigation leading key.
 - Use `<tab>` as IDE coc auto completion.
-- Use `<c-o>` as IDE coc code snippets.
 - Use `,a` as IDE coc code actions leading key.
 - Use `<space>` as IDE coc list leading key.
 
@@ -335,7 +334,6 @@ Warning/Error Navigation:
 | Key                 | Action                                                      |
 |---------------------|-------------------------------------------------------------|
 | **(INSERT)`<tab>`** | Auto completion.                                            |
-| **(INSERT)`<c-o>`** | Code Snippets.                                              |
 
 ### Documentation
 

@@ -777,16 +777,6 @@
     " ~/.vim/bundle/vim-css-color/README.md
     VkhAdd 'vim-css-color: A very fast, multi-syntax context-sensitive color name highlighter'
     " }
-
-    " plugin ultisnips and vim-snippets {
-    " ~/.vim/bundle/ultisnips/README.md
-    let g:UltiSnipsExpandTrigger="<c-o>"
-    let g:UltiSnipsJumpForwardTrigger="<c-n>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-    let g:UltiSnipsEditSplit="horizontal"
-    " snippets: ~/.vim/bundle/vim-snippets/snippets
-    source ~/.vim/snippets/markdown.vim
-    VkhAdd 'ultisnips: <c-o> trigger snippets.'
     " }
 
     " plugin vim-table-mode {
