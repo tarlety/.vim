@@ -410,6 +410,7 @@
 
     " Plugins - Files and Navigation {
 
+        " Files {
         Plug 'scrooloose/nerdtree'
           " <leader>nn open nerdtree window. <leader>nf find current file in nerdtree.'
         Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -425,37 +426,70 @@
 
         Plug 'airblade/vim-rooter'
           " changes the working directory to the project root when you open a file or directory
+        " }
 
+        " Navigation {
         Plug 'Lokaltog/vim-easymotion'
           " <leader><leader>w forward move <leader><leader>b backward move
 
         Plug 'kshenoy/vim-signature'
           " Visible mark (m-*)
+
+        Plug 'junegunn/vim-peekaboo'
+          " extends " and @ in normal mode and <CTRL-R> in insert mode so you can see the contents of the registers
+        " }
+
+        " gpg {
+        Plug 'jamessan/vim-gnupg'
+          " transparent editing of gpg encrypted files: ".gpg", ".pgp" or ".asc" suffix
+        " }
+
     " }
 
-    " Plugins - Coding {
+    " Plugins - Editing {
 
+        Plug 'terryma/vim-expand-region'
+          " Press + to expand the visual selection and _ to shrink it.
+        Plug 'tpope/vim-surround'
+          " All about surround. '+' then 'S' then surround.
+        Plug 'mg979/vim-visual-multi'
+          " ctrl+N to select words, n to confirm, q to skip
+        Plug 'wellle/tmux-complete.vim'
+          " complete words visible in Tmux panes
+        Plug 'maxbrunsfeld/vim-yankstack'
+          " <a-p> cycle backward through your history of yanks
+
+    " }
+
+    " Plugins - IDE {
+
+        " git {
         Plug 'tpope/vim-fugitive'
           " <leader>gb git blame <leader>gl git log
         Plug 'airblade/vim-gitgutter'
           " <leader>gt Visible git sign ]c and [c for hunk navigation.
+        " }
 
+        " tag {
         Plug 'majutsushi/tagbar'
           " <leader>tt to open tag bar; ctags required
+        " }
 
+        " ide {
         Plug 'dense-analysis/ale'
           " Visible linter ERROR and warning, ]e and [e for error navigation.
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
           " Conquer of Completion, ]g and [g for error navigation.
-        Plug 'wellle/tmux-complete.vim'
-          " complete words visible in Tmux panes
-
-        Plug 'ap/vim-css-color'
-          " A very fast, multi-syntax context-sensitive color name highlighter
+        " }
 
     " }
 
-    " Plugins - filetypes {
+    " Plugins - Languages {
+
+        Plug 'nathanaelkane/vim-indent-guides'
+          " visually displaying indent levels
+        Plug 'luochen1990/rainbow'
+          " rainbow parentheses {[()]}
 
         " javascript {
         Plug 'nikvdp/ejs-syntax', {'for': 'ejs'}
@@ -466,6 +500,8 @@
           " tagbar for js; have to load early, otherwise not working
         Plug 'moll/vim-node'
           " gf in node.js require(...)
+        Plug 'maksimr/vim-jsbeautify'
+          " <leader>== to format javascript, html and css files
         " }
 
         " markdown {
@@ -475,46 +511,15 @@
           " :GenTocGFM to generate markdown TOC for Github markdown
         " }
 
-        " gpg {
-        Plug 'jamessan/vim-gnupg'
-          " transparent editing of gpg encrypted files: ".gpg", ".pgp" or ".asc" suffix
-        " }
-
-    " }
-
-    " Plugins - Formatting {
-
-        Plug 'nathanaelkane/vim-indent-guides'
-          " visually displaying indent levels
-        Plug 'luochen1990/rainbow'
-          " rainbow parentheses {[()]}
-
-        Plug 'maksimr/vim-jsbeautify'
-          " <leader>== to format javascript, html and css files
-
-    " }
-
-    " Plugins - Editing {
-
-        Plug 'terryma/vim-expand-region'
-          " Press + to expand the visual selection and _ to shrink it.
-        Plug 'tpope/vim-surround'
-          " All about surround. '+' then 'S' then surround.
+        " html {
         Plug 'gregsexton/MatchTag'
           " Highlights the matching HTML tags
-        Plug 'tpope/vim-commentary'
-          " gcc to comment out a line, gcap to comment out a paragraph
-        Plug 'junegunn/vim-peekaboo'
-          " extends " and @ in normal mode and <CTRL-R> in insert mode so you can see the contents of the registers
-        Plug 'mbbill/undotree'
-          " visualizes undo history, <leader>u to open undo tree
-        Plug 'Ron89/thesaurus_query.vim'
-          " <leader>cs to lookup synonyms of any word under cursor or phrase covered in visual mode, and replace it with an user chosen synonym
-        Plug 'mg979/vim-visual-multi'
-          " ctrl+N to select words, n to confirm, q to skip
-        Plug 'maxbrunsfeld/vim-yankstack'
-          " <a-p> cycle backward through your history of yanks
+        " }
 
+        " css {
+        Plug 'ap/vim-css-color'
+          " A very fast, multi-syntax context-sensitive color name highlighter
+        " }
     " }
 
     " Plugins - Themes {
@@ -526,6 +531,17 @@
           " color highlights for nerdtree
         Plug 'ryanoasis/vim-devicons'
           " icons plugin for nerdtree
+
+    " }
+
+    " Plugins - Deprecated {
+
+        Plug 'mbbill/undotree'
+          " visualizes undo history, <leader>u to open undo tree
+        Plug 'tpope/vim-commentary'
+          " gcc to comment out a line, gcap to comment out a paragraph
+        Plug 'Ron89/thesaurus_query.vim'
+          " <leader>cs to lookup synonyms of any word under cursor or phrase covered in visual mode, and replace it with an user chosen synonym
 
     " }
 
@@ -776,7 +792,6 @@
     " plugin vim-css-color {
     " ~/.vim/bundle/vim-css-color/README.md
     VkhAdd 'vim-css-color: A very fast, multi-syntax context-sensitive color name highlighter'
-    " }
     " }
 
     " plugin vim-table-mode {
