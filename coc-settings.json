@@ -59,6 +59,7 @@
   "javascript.suggest.names": true,
   "javascript.suggestionActions.enabled": true,
   "json.format.enable": true,
+  "python.pythonPath": "/usr/bin/python3",
   "languageserver": {
     "ccls": {
       "command": "ccls",

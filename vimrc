@@ -451,8 +451,6 @@
 
     " Plugins - Onboarding {
 
-        Plug 't16ing/vim-vandomkeyhint'
-          " randomly pick key hints and show in the message bar
         Plug 'mhinz/vim-startify'
           " <leader>S open the fancy start screen for Vim. :SSave to save session.
         Plug 'liuchengxu/vim-which-key'
@@ -663,23 +661,6 @@
 
 " Plugins Configs {
 
-    " plugin vim-vandomkeyhint {
-        " ~/.vim/bundle/vim-vandomkeyhint/autoload/vandomkeyhint.vim
-
-        " This has to be prior than any VkhAdd command
-        " Has to be done here to avoid following "VkhAdd" from leading to error
-        let vkh_readme=expand('~/.vim/bundle/vim-vandomkeyhint/README.md')
-        if !filereadable(vkh_readme)
-            echo "Installing vandomkeyhint.."
-            echo ""
-            silent !mkdir -p ~/.vim/bundle/vim-vandomkeyhint
-            silent !git clone https://github.com/t16ing/vim-vandomkeyhint ~/.vim/bundle/vim-vandomkeyhint
-        endif
-        set rtp+=~/.vim/bundle/vim-vandomkeyhint/
-        call vandomkeyhint#rc()
-
-    " }
-
     " plugin vim-startify {
         " ~/.vim/bundle/vim-startify/doc/startify.txt
 
@@ -729,7 +710,7 @@
         " anytime <leader>S to launch Startify
         map <leader>S :Startify<CR>
 
-        VkhAdd 'vim-startify: <leader>S open the fancy start screen. :SSave to save session.'
+        " VkhAdd 'vim-startify: <leader>S open the fancy start screen. :SSave to save session.'
 
     " }
 
@@ -894,9 +875,9 @@
 
         " }
 
-        VkhAdd "plugin vim-lightline: Lean & mean status/tabline for vim that's light as air."
-        VkhAdd 'gn to next buffer, gp to previous buffer, g[1-9] to move to tab n'
-        VkhAdd '<leader>bd to close buffer'
+        " VkhAdd "plugin vim-lightline: Lean & mean status/tabline for vim that's light as air."
+        " VkhAdd 'gn to next buffer, gp to previous buffer, g[1-9] to move to tab n'
+        " VkhAdd '<leader>bd to close buffer'
 
     " }
 
@@ -913,7 +894,7 @@
         map <leader>nf <ESC>:NERDTreeFind<CR>
 
         let g:which_key_map['n'] = {'name' : '+nerdtree'}
-        VkhAdd 'nerdtree: <leader>nn open nerdtree window. <leader>nf find current file in nerdtree.'
+        " VkhAdd 'nerdtree: <leader>nn open nerdtree window. <leader>nf find current file in nerdtree.'
 
         " plugin vim-nerdtree-syntax-highlight {
         " ~/.vim/bundle/vim-nerdtree-syntax-highlight/README.md
@@ -992,9 +973,9 @@
         let g:which_key_map.f.g = 'commits'
         let g:which_key_map.f[';'] = 'commands'
         let g:which_key_map.f['/'] = 'fuzzy finder'
-        VkhAdd 'fzf.vim: <leader>fp to open ctrlp window.'
-        VkhAdd 'fzf.vim: <leader>ff for cursor word search'
-        VkhAdd 'fzf.vim: <leader>f/ to open fzf window.'
+        " VkhAdd 'fzf.vim: <leader>fp to open ctrlp window.'
+        " VkhAdd 'fzf.vim: <leader>ff for cursor word search'
+        " VkhAdd 'fzf.vim: <leader>f/ to open fzf window.'
 
     " }
 
@@ -1006,7 +987,7 @@
         nmap W <Plug>(easymotion-w)
         nmap B <Plug>(easymotion-b)
 
-        VkhAdd 'vim-easymotion: `WW` Fast Forward `BB` Fast Backward.'
+        " VkhAdd 'vim-easymotion: `WW` Fast Forward `BB` Fast Backward.'
 
     " }
 
@@ -1041,8 +1022,8 @@
         " When a line has both marks and markers, display the sign for markers
         let g:SignaturePrioritizeMarks = 0
 
-        VkhAdd 'mark: mm toggle a mark, mn/mp motion, ml list, m<space> clear all'
-        VkhAdd 'marker: m[0-9] toggle a marker, mN/mP motion, mL list, m<BS> clear all'
+        " VkhAdd 'mark: mm toggle a mark, mn/mp motion, ml list, m<space> clear all'
+        " VkhAdd 'marker: m[0-9] toggle a marker, mN/mP motion, mL list, m<BS> clear all'
 
     " }
 
@@ -1062,23 +1043,23 @@
                     \ 'ic'  :1,
                     \ }
 
-        VkhAdd "vim-expand-region: `+` to expand the visual selection and `_` to shrink it."
+        " VkhAdd "vim-expand-region: `+` to expand the visual selection and `_` to shrink it."
 
     " }
 
     " plugin vim-surround {
     " ~/.vim/bundle/vim-surround/README.markdown
-    VkhAdd "'+' then 'S' then 'do the surround'."
+    " VkhAdd "'+' then 'S' then 'do the surround'."
     " }
 
     " plugin vim-visual-multi {
     " ~/.vim/bundle/vim-visual-multi/README.md
-    VkhAdd 'vim-visual-multi: ctrl+N to select words, n to confirm, q to skip, \\a to align'
+    " VkhAdd 'vim-visual-multi: ctrl+N to select words, n to confirm, q to skip, \\a to align'
     " }
 
     " plugin vim-peekaboo {
     " ~/.vim/bundle/vim-peekaboo/README.md
-    VkhAdd 'vim-peekaboo: (NORMAL)" or @ (INSERT) <CTRL-R> to see registers.'
+    " VkhAdd 'vim-peekaboo: (NORMAL)" or @ (INSERT) <CTRL-R> to see registers.'
     " }
 
     " plugin undotree {
@@ -1105,19 +1086,19 @@
         " to toggle the undo-tree panel
         nnoremap <leader>u :UndotreeToggle<cr>
 
-        VkhAdd 'undotree: <leader>u to open undo tree'
+        " VkhAdd 'undotree: <leader>u to open undo tree'
 
     " }
 
     " plugin vim-yankstack {
     " ~/.vim/bundle/vim-yankstack/README.md
     let g:yankstack_yank_keys = ['y', 'd', 'c']
-    VkhAdd '<a-p> cycle backward through your history of yanks'
+    " VkhAdd '<a-p> cycle backward through your history of yanks'
     " }
 
     " plugin tmux-complete.vim {
     " ~/.vim/bundle/tmux-complete.vim/README.md
-    VkhAdd 'tmux-complete.vim: complete words visible in Tmux panes'
+    " VkhAdd 'tmux-complete.vim: complete words visible in Tmux panes'
     " }
 
     " plugin rainbow {
@@ -1138,7 +1119,7 @@
         map <leader>t <ESC>:TagbarToggle<CR>
 
         let g:which_key_map['t'] = {'name' : 'tagbar'}
-        VkhAdd 'tagbar: <leader>t to open Tagbar window.'
+        " VkhAdd 'tagbar: <leader>t to open Tagbar window.'
 
     " }
 
@@ -1171,7 +1152,7 @@
         " default is 200 ms, increase to 5s to save battery power
         let g:ale_lint_delay = 5000
 
-        VkhAdd 'ale: ]e [e to navigate errors.'
+        " VkhAdd 'ale: ]e [e to navigate errors.'
 
     " }
 
@@ -1211,14 +1192,14 @@
         let g:which_key_map.g.h.s = 'stage'
         let g:which_key_map.g.h.u = 'undo'
 
-        VkhAdd "plugin vim-gitgutter: shows a git diff in the 'gutter' (sign column)"
-        VkhAdd "<leader><leader>g A Vim plugin which shows a git diff in the 'gutter' (sign column)."
-        VkhAdd '<]g> for next hunk, <[g> for previous hunk.'
-        VkhAdd 'g as text object, ex: ig as GitGutterTextObjectInner, ag as GitGutterTextObjectOuter.'
+        " VkhAdd "plugin vim-gitgutter: shows a git diff in the 'gutter' (sign column)"
+        " VkhAdd "<leader><leader>g A Vim plugin which shows a git diff in the 'gutter' (sign column)."
+        " VkhAdd '<]g> for next hunk, <[g> for previous hunk.'
+        " VkhAdd 'g as text object, ex: ig as GitGutterTextObjectInner, ag as GitGutterTextObjectOuter.'
 
-        VkhAdd 'plugin vim-fugitive: for Gblame and Glog'
-        VkhAdd '<leader>gb brings up an interactive vertical split with git blame output.'
-        VkhAdd '<leader>gl brings up commit history.'
+        " VkhAdd 'plugin vim-fugitive: for Gblame and Glog'
+        " VkhAdd '<leader>gb brings up an interactive vertical split with git blame output.'
+        " VkhAdd '<leader>gl brings up commit history.'
 
     " }
 
@@ -1306,9 +1287,9 @@
 
         " }
 
-        VkhAdd 'gd for definition, gy for type, gi for implementation, gf for reference'
-        VkhAdd ']g and [g for next diagnostic, and <leader>qf for quick fix'
-        VkhAdd '<space>a,e,c,o,s,j,k,p for CoCList mappings'
+        " VkhAdd 'gd for definition, gy for type, gi for implementation, gf for reference'
+        " VkhAdd ']g and [g for next diagnostic, and <leader>qf for quick fix'
+        " VkhAdd '<space>a,e,c,o,s,j,k,p for CoCList mappings'
 
     " }
 
@@ -1329,18 +1310,19 @@
                 \ 'go': v:true,
                 \ 'rust': v:true,
                 \ 'toml': v:true,
-                \ 'py': v:true,
+                \ 'python': v:true,
                 \ 'c': v:true,
                 \ 'cpp': v:true,
                 \ 'cs': v:true,
                 \ }
 
+        nmap <leader>cc :Copilot panel<CR>
+        nmap <leader>cs :Copilot status<CR>
+
         let g:which_key_map['c'] = {'name' : '+copilot'}
         let g:which_key_map.c.c = 'completions'
         let g:which_key_map.c.s = 'status'
-        nmap <leader>cc :Copilot panel<CR>
-        nmap <leader>cs :Copilot status<CR>
-        VkhAdd "plugin copilot.vim: <leader>cs to show copilot status, <leader>cc> to show completions, <alt+[ or ]> to switch completions."
+        " VkhAdd "plugin copilot.vim: <leader>cs to show copilot status, <leader>cc> to show completions, <alt+[ or ]> to switch completions."
 
     " }
 
@@ -1371,13 +1353,22 @@
             let g:table_mode_map_prefix = '<leader>m'
             nnoremap <leader><leader>m :TableModeToggle<CR>
 
-            VkhAdd 'vim-table-mode: <leader><leader>m to start automatic table creator & formatter'
+            let g:which_key_map['m'] = {'name' : '+tablemode'}
+            let g:which_key_map.m.d = {'name' : '+delete'}
+            let g:which_key_map.m.i = {'name' : '+insert'}
+            let g:which_key_map.m.f = {'name' : '+formula'}
+            let g:which_key_map.m.m = 'toggle'
+            let g:which_key_map.m.r = 'realign'
+            let g:which_key_map.m.s = 'sort'
+            let g:which_key_map.m.t = 'tableize'
+            let g:which_key_map.m['?'] = 'cell'
+            " VkhAdd 'vim-table-mode: <leader><leader>m to start automatic table creator & formatter'
 
         " }
 
         " plugin vim-markdown-toc {
         " ~/.vim/bundle/vim-markdown-toc/README.md
-        VkhAdd 'vim-markdown-toc: :GenTocGFM to generate markdown TOC.'
+        " VkhAdd 'vim-markdown-toc: :GenTocGFM to generate markdown TOC.'
         " }
 
     " }
@@ -1396,7 +1387,7 @@
 
         " plugin vim-css-color {
         " ~/.vim/bundle/vim-css-color/README.md
-        VkhAdd 'vim-css-color: A very fast, multi-syntax context-sensitive color name highlighter'
+        " VkhAdd 'vim-css-color: A very fast, multi-syntax context-sensitive color name highlighter'
         " }
 
     " }
@@ -1421,7 +1412,7 @@
 
         " plugin vim-commentary {
         " ~/.vim/bundle/vim-commentary/README.markdown
-        VkhAdd 'vim-commentary: gcc for single line or gcap for a paragraph.'
+        " VkhAdd 'vim-commentary: gcc for single line or gcap for a paragraph.'
         " }
 
         " plugin thesaurus_query.vim {
@@ -1430,7 +1421,7 @@
         nnoremap <Leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
         vnoremap <Leader>ss y:ThesaurusQueryReplace <C-r>"<CR>
         let g:which_key_map.s.s = 'suggested synonyms'
-        VkhAdd 'thesaurus_query.vim: <leader>ss to lookup suggested synonyms.'
+        " VkhAdd 'thesaurus_query.vim: <leader>ss to lookup suggested synonyms.'
         " }
 
         " plugin vim-indent-guides {

@@ -11,7 +11,7 @@
 * [Introduction](#introduction)
     * [Core Philosophy](#core-philosophy)
     * [Key Binding Philosophy](#key-binding-philosophy)
-* [Enhanced Editing and Coding Experience](#enhanced-editing-and-coding-experience)
+* [Improved Experience](#improved-experience)
     * [Improved Editor Experience](#improved-editor-experience)
     * [Improved Visual Experience](#improved-visual-experience)
     * [Improved Coding Experience](#improved-coding-experience)
@@ -19,14 +19,15 @@
     * [Basic Key Binding Rule](#basic-key-binding-rule)
     * [Function Groups](#function-groups)
     * [Mode Changing](#mode-changing)
-    * [Efficiency Improvement](#efficiency-improvement)
+    * [Navigation Improvement](#navigation-improvement)
+    * [Editor Improvement](#editor-improvement)
 * [Featuring](#featuring)
     * [Onboarding](#onboarding)
     * [Editor Navigation](#editor-navigation)
     * [Aesthetic Interface](#aesthetic-interface)
     * [IDE](#ide)
 * [Theme](#theme)
-* [Usage Tips](#usage-tips)
+* [Key Mapping Sheets](#key-mapping-sheets)
     * [Buffer and Line](#buffer-and-line)
     * [Window](#window)
     * [Tab](#tab)
@@ -87,7 +88,7 @@ To make key bindings well organized and easy to remember and understand, they sh
 
     Key bindings should be grouped by functionality and follow a hierarchical structure. For example, using the `leader` key followed by specific letters for function groups, with further actions appended to those letters.
 
-## Enhanced Editing and Coding Experience
+## Improved Experience
 
 ### Improved Editor Experience
 
@@ -116,15 +117,15 @@ To make key bindings well organized and easy to remember and understand, they sh
 
 ### Basic Key Binding Rule
 
-| Key                          | Description                        | Example                                 |
-|------------------------------|------------------------------------|-----------------------------------------|
-| **`,`**                      | Leader Key.                        | As ordinal `\` does.                    |
-| **`,` + specific letters**   | Specific Function Group.           | ex: `,n` for Filesystem Navigation.     |
-| **`,,`**                     | Mode Change.                       | ex: `,,s` for spell check mode change.  |
-| **`<c-`** + specific letters | Specific Function Group.           | ex: `<c-w>` for window navigation.      |
-| `=`                          | auto indent related key.           | ex: visual selection and `=` to format. |
-| `][`                         | as message navigation leading key. | ex: multi-selection navigation.         |
-| `:` or `;`                   | Command key (without shift).       | As ordinal ':' does.                    |
+| Key                 | Description                        | Example                                 |
+|---------------------|------------------------------------|-----------------------------------------|
+| **`,`**             | Leader Key.                        | As ordinal `\` does.                    |
+| **`,` + letter**    | Specific Function Group.           | ex: `,n` for Filesystem Navigation.     |
+| **`,,`**            | Mode Change.                       | ex: `,,s` for spell check mode change.  |
+| **`<c-`** + letters | Specific Function Group.           | ex: `<c-w>` for window navigation.      |
+| `=`                 | auto indent related key.           | ex: visual selection and `=` to format. |
+| `][`                | as message navigation leading key. | ex: multi-selection navigation.         |
+| `:` or `;`          | Command key (without shift).       | As ordinal ':' does.                    |
 
 ### Function Groups
 
@@ -151,13 +152,20 @@ To make key bindings well organized and easy to remember and understand, they sh
 | **`,,m`**   | Toggle Markdown table mode. | Off     |
 | **`,,g`**   | Toggle Visible Git Sign.    | Visible |
 | **`,,p`**   | Toggle Paste mode.          | Off     |
+| **`,,s`**   | Toggle Spell Check mode.    | Off     |
+| **`,,z`**   | Toggle Wrap mode.           | Off     |
 
-### Efficiency Improvement
+### Navigation Improvement
 
 | Key Binding | Actions                               |
 |-------------|---------------------------------------|
 | WW          | Fast Forward words with eady motion.  |
 | BB          | Fast Backward words with eady motion. |
+
+### Editor Improvement
+
+| Key Binding | Actions                               |
+|-------------|---------------------------------------|
 | zz          | Fast Save.                            |
 | Q           | Fast Quit to close window or buffer.  |
 
@@ -214,7 +222,7 @@ To make key bindings well organized and easy to remember and understand, they sh
 
 colorscheme
 
-## Usage Tips
+## Key Mapping Sheets
 
 ### Buffer and Line
 
@@ -228,11 +236,11 @@ colorscheme
 
 Other quick cursor and screen control.
 
-| Key                      | Action                                   |
-|--------------------------|------------------------------------------|
-| `W` `B`                  | Faster word and back-word motion.        |
-| `z.`                     | Put current line to center of screen.    |
-| `z-`                     | Put current line to bottom of screen.    |
+| Key     | Action                                |
+|---------|---------------------------------------|
+| `W` `B` | Faster word and back-word motion.     |
+| `z.`    | Put current line to center of screen. |
+| `z-`    | Put current line to bottom of screen. |
 
 ### Window
 
@@ -463,8 +471,7 @@ Warning/Error Navigation:
 
 ## Compatibility
 
-Below vim versions have been tested:
-- NVIM v0.10.0
+NVIM v0.10.0
 
 ## License
 
